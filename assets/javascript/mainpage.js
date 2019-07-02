@@ -157,9 +157,11 @@ $( document ).ready(function() {
            var timeInMin = Math.floor(timeToLoc/60);
 
            var time = $("<p>");
-           time.text(timeInMin);
+           time.addClass("center text-bold");
+           time.text("Time in Minutes: ");
+           time.append(timeInMin)
 
-           $("#turn-by").append("Time in minutes: ")
+          //  $("#turn-by").append("Time in minutes: ")
            $("#turn-by").append(time);
 
            minLength = timeInMin - 5;
