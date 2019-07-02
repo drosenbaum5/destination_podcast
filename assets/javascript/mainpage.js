@@ -13,6 +13,7 @@ $( document ).ready(function() {
     function displayPods() {
 
         var podcastDiv = $("<div>").attr("id", "podcast-holder");
+        podcastDiv.addClass("z-depth-5");
         $("#podcast-container").append(podcastDiv);
 
         //event.preventDefault();
@@ -132,29 +133,61 @@ $( document ).ready(function() {
 
         console.log("dest: " + destLoc);
 
-        var queryURL = "http://www.mapquestapi.com/directions/v2/routematrix?key=dvFjIsAPsAlAFFRVAmS01LOQ7lu5cZEl&ambiguities=ignore&doReverseGeocode=true&outFormat=json&routeType=fastest&locale=de_DE&unit=k&allToAll=false&from=" + startLoc + "&to=" + destLoc 
-        
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function(res) {
+        // route matrix
+        // var queryURL = "http://www.mapquestapi.com/directions/v2/routematrix?key=dvFjIsAPsAlAFFRVAmS01LOQ7lu5cZEl&ambiguities=ignore&doReverseGeocode=true&outFormat=json&routeType=fastest&locale=de_DE&unit=k&allToAll=false&from=" + startLoc + "&to=" + destLoc
+
+        // optimized route
+        // (turn by turn does not always match route from process above and maybe not route matrix)
+        var queryURL2 = 'https://www.mapquestapi.com/directions/v2/optimizedroute?key=dvFjIsAPsAlAFFRVAmS01LOQ7lu5cZEl&from=' + startLoc + '&to=' + destLoc + '&outFormat=json&ambiguities=ignore&routeType=fastest&doReverseGeocode=false&enhancedNarrative=false&avoidTimedConditions=false'
+
+       $.ajax({
+           url: queryURL2,
+           method: "GET"
+       }).then(function(res) {
 
 
-            console.log(res);
+           console.log(res);
 
-            var timeToLoc = res.time[1];
-            console.log("seconds: " + timeToLoc);
+           // adding time to location in #turn-by div
 
-            timeInMin = Math.floor(timeToLoc/60);
-            console.log("minutes: " + timeInMin);
+           $("#turn-by").empty();
 
-            $("#time-to-loc").text(timeInMin);
+           var timeToLoc = res.route.time;
 
-            minLength = timeInMin - 5;
-            console.log("minLength: " + minLength);
+           var timeInMin = Math.floor(timeToLoc/60);
 
-            maxLength = timeInMin + 5;
-            console.log("maxLength: " + maxLength)
+           var time = $("<p>");
+           time.text(timeInMin);
+
+           $("#turn-by").append("Time in minutes: ")
+           $("#turn-by").append(time);
+
+           minLength = timeInMin - 5;
+           console.log("minLength: " + minLength);
+
+           maxLength = timeInMin + 5;
+           console.log("maxLength: " + maxLength);
+
+           // adding turn by turn to the #turn-by div
+           
+           turnByTurn = res.route.legs[0].maneuvers;
+
+           var list = $("<ol>");
+
+           for (var i = 0; i<turnByTurn.length; i++) {
+
+             var nar = turnByTurn[i].narrative;
+
+             var directions = $("<li>");
+             directions.text(nar);
+             directions.append("<hr>");
+
+             list.append(directions);
+             
+
+             $("#turn-by").append(list);
+
+           }
 
         })
 

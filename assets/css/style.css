@@ -61,7 +61,6 @@
 .card {
 
   background-color: rgb(88, 86, 86);
-  border-radius: 0px 0px 10px 10px;
   opacity: .9;
  
   /* display: none; */
@@ -72,7 +71,8 @@
 #podDiv {
 
   float: left;
-  margin: 5px;
+  margin: 50px;
+  word-wrap: break-word;
  
 }
 
@@ -81,8 +81,9 @@
   overflow-x: scroll;
   height: 400px;
   width: 100%;
-  border: 2px solid black;
+  border: 4px solid black;
   padding: 2%;
+  border-radius: 5px;
 
 }
 
@@ -109,4 +110,14 @@
 margin-top: 10px;
 margin-left: 0px;
  
+}
+
+
+#turn-by {
+
+ 
+  overflow-y: scroll;
+  max-height: 300px;
+  background: rgb(255, 255, 255);
+  opacity: .6;
 }
