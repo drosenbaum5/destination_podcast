@@ -47,7 +47,8 @@ $( document ).ready(function() {
 
                     //creating a div to hold the podcast info
                     var div = $("<div>");
-                    div.addClass("")
+                    div.addClass("row")
+                    div.addClass()
                     div.attr("id", "podDiv");
 
                     // retrieving the thumbnail data
@@ -165,7 +166,12 @@ $( document ).ready(function() {
     $(document).on("click", "#submit-button", displayTime);
     //$(document).on("click", "#submit-button", displayPods);
     $("#submit-button").on("click", function(){
+
+       if ($.trim($("#topic").val()) !== "") {
+
        setTimeout(displayPods, 1000); 
+
+       }
     });
 
 
