@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Destination: Podcast</title>
+
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+</head>
+<body>
+    <!-- Dropdown Structure -->
+
+    
+<ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+      </ul>
+
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper blue-grey darken-4">
+          <div class = "container" id = "logo">
+          <a href="#!" class="brand-logo">Destination Podcast</a>
+        </div>
+
+        
+          <!-- <ul class="right hide-on-med-and-down">
+            
+         
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Login with Google<i class="material-icons right"></i></a></li>
+          </ul> -->
+
+
+        </div>
+      </nav>
+    </div> 
+              
+    <br>
+    
+
+   <!--Container for submission box-->
+    <div class = "container" id="submission-box">
+    <div class = "z-depth-5" id = "form">
+      <form>
+
+          
+            
+        <label for="location">Current Location</label>
+        <input type="text" id="location"  placeholder="">
+    
+        <label for="destination">Destination</label>
+        <input type="text" id = "destination" placeholder="">
+
+        <label for="topic">Podcast Topic</label>
+        <input type="text" id = "topic" placeholder="">
+
+       <div class = "row">
+         
+        <input type="submit" id = "submit-button" value="Submit">
+        <div class = "col"></div>
+            <a class="btn-floating btn-medium blue" id = "voice-btn">
+                <i class="large material-icons">mic</i> </a>
+      </div>
+    </div>
+    </form>
+    </div>
+  </div>
+
+
+
+
+ <br>
+ 
+<!---Container for podcast/navigation cards-->
+
+<!---Left Navigation Card-->
+<!-- <div id="map-container">
+  <div id="map" style="width: 100%; height: 100%"></div>
+</div> -->
+
+  <div class = "container" id="podcast-card">
+      <div class="row">
+          <div class="col s4">
+            <div class="card small z-depth-5">
+                <div id="map-container">
+                    <div id="map" style="width: 100%; height: 100%"></div>
+                  </div>
+              
+              
+             
+              </div>
+            </div>
+<!---Podcast Card-->
+            <div class="col s4">
+                <div class="card small z-depth-5">
+                  <div class="card-image">
+                    <img src="images/podcast.jpg">
+                   
+                  </div>
+                  <div class="card-content">
+                  
+                  </div>
+                 
+                  </div>
+                </div>
+
+<!--- Right Navigation Card-->
+            <div class="col s4">
+                <div class="card small z-depth-5">
+                  <div class="card-image">
+                    <img src="">
+
+                    <p>Time to location approximately <span id="time-to-loc"></span> minutes.</p>
+                   
+                  </div>
+               
+                 
+                  </div>
+                </div>
+          </div>
+        </div>
+                  
+  </div>
+
+  <!---Container for podcast choices-->
+ <div class = "container" id="podcast-container">
+
+
+
+  </div>
+
+
+
+
+  <!---Audio file calls for voice recognition-->  
+  <audio id="pop1">
+      <source src="./assets/myaudio/Bothblank.wav" type="audio/mpeg">
+  </audio>
+
+  <audio id="pop2">
+        <source src="./assets/myaudio/Startinglocation.wav" type="audio/mpeg">
+  </audio>
+
+  <audio id="pop3">
+    <source src="./assets/myaudio/Destinationblank.wav" type="audio/mpeg">
+  </audio>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./assets/javascript/script(thorpe).js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="assets/javascript/mainpage.js"></script>
+
+</body>
+</html>
