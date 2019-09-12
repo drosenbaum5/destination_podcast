@@ -16,5 +16,5 @@
     jQuery
     Listen Notes API
     MapQuest API
-    Voice Recgonition
+    Voice Recognition
 
